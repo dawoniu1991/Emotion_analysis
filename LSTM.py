@@ -2,8 +2,8 @@
 
 import numpy as np
 wordsList = np.load('./training_data/wordsList.npy')
-wordsList = wordsList.tolist() #Originally loaded as numpy array
-wordsList = [word.decode('UTF-8') for word in wordsList] #Encode words as UTF-8
+wordsList = wordsList.tolist() #
+wordsList = [word.decode('UTF-8') for word in wordsList]
 wordVectors = np.load('./training_data/wordVectors.npy')
 
 
@@ -14,8 +14,8 @@ print(wordVectors.shape)
 
 
 import tensorflow as tf
-maxSeqLength = 10 #Maximum length of sentence
-numDimensions = 300 #Dimensions for each word vector
+maxSeqLength = 10 #句子最大长度
+numDimensions = 300 #词向量维度
 firstSentence = np.zeros((maxSeqLength), dtype='int32')
 firstSentence[0] = wordsList.index("i")
 firstSentence[1] = wordsList.index("thought")
@@ -63,7 +63,6 @@ print('The average number of words in the files is', sum(numWords)/len(numWords)
 
 
 import matplotlib.pyplot as plt
-get_ipython().run_line_magic('matplotlib', 'inline')
 plt.hist(numWords, 50)
 plt.xlabel('Sequence Length')
 plt.ylabel('Frequency')
@@ -80,7 +79,7 @@ maxSeqLength = 250
 
 
 
-fname = positiveFiles[3] #Can use any valid index (not just 3)
+fname = positiveFiles[3]
 with open(fname) as f:
     for lines in f:
         print(lines)
@@ -107,9 +106,8 @@ with open(fname) as f:
         try:
             firstFile[indexCounter] = wordsList.index(word)
         except ValueError:
-            firstFile[indexCounter] = 399999 #Vector for unknown words
+            firstFile[indexCounter] = 399999 #
         indexCounter = indexCounter + 1
-firstFile
 
 
 #用相同的方法来处理全部的 25000 条评论，导入电影训练集，得到一个 25000 * 250 的矩阵
@@ -221,7 +219,6 @@ accuracy = tf.reduce_mean(tf.cast(correctPred, tf.float32))
 
 
 # 使用交叉熵损失函数来作为损失值。对于优化器，我们选择 Adam，并且采用默认的学习率。
-
 
 loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=prediction, labels=labels))
 optimizer = tf.train.AdamOptimizer().minimize(loss)
