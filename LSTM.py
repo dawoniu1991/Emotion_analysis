@@ -147,6 +147,7 @@ with open(fname) as f:
 
 
 #上述过程耗时太长，直接导入相关矩阵
+#ids维度为(25000, 250)，对于25000条数据，取每一条数据的前250个单词，多出的截取掉，不足250单词的填充0
 ids = np.load('./training_data/idsMatrix.npy')
 
 
