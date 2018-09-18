@@ -15,7 +15,7 @@ print(wordVectors.shape)
 
 import tensorflow as tf
 maxSeqLength = 10 #句子最大长度
-numDimensions = 300 #词向量维度
+numDimensions = 50 #词向量维度
 firstSentence = np.zeros((maxSeqLength), dtype='int32')
 firstSentence[0] = wordsList.index("i")
 firstSentence[1] = wordsList.index("thought")
