@@ -56,9 +56,9 @@ for nf in negativeFiles:
 
 
 numFiles = len(numWords)
-print('The total number of files is', numFiles)
-print('The total number of words in the files is', sum(numWords))
-print('The average number of words in the files is', sum(numWords)/len(numWords))
+print('总文件数目', numFiles)
+print('所有文件中单词总和', sum(numWords))
+print('每个文件中的平均单词数目', sum(numWords)/len(numWords))
 
 
 
