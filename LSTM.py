@@ -76,7 +76,11 @@ plt.show()
 
 maxSeqLength = 250
 
-
+#查看一条文件数据评论内容
+fname = positiveFiles[3]
+with open(fname) as f:
+    for lines in f:
+        print(lines)
 
 # 删除标点符号、括号、问号等，只留下字母数字字符
 import re
