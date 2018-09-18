@@ -78,14 +78,6 @@ maxSeqLength = 250
 
 
 
-
-fname = positiveFiles[3]
-with open(fname) as f:
-    for lines in f:
-        print(lines)
-        exit
-
-
 # 删除标点符号、括号、问号等，只留下字母数字字符
 import re
 strip_special_chars = re.compile("[^A-Za-z0-9 ]+")
